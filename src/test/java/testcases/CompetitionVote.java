@@ -73,8 +73,10 @@ public class CompetitionVote extends BaseTest {
 	public void VoteCompetitionNow() {
 		if (new ListCompetition().statusNow() ==  200) {
 			
+			Integer competitionId = Integer.valueOf(new ListCompetition().competitionIdNow());
+			
 			Vote body = Vote.builder()
-					.competition_id(new ListCompetition().now())
+					.competition_id(competitionId)
 					.contestant_id(new Video().userIdCompetitionNow())
 					.vote_number(1)
 					.video_id(new Video().videoIdCompetitionNow())
@@ -100,8 +102,10 @@ public class CompetitionVote extends BaseTest {
 	public void VoteCompetitionSoon() {
 		if (new ListCompetition().statusSoon() ==  200) {
 			
+			Integer competitionId = Integer.valueOf(new ListCompetition().competitionIdSoon());
+			
 			Vote body = Vote.builder()
-					.competition_id(new ListCompetition().soon())
+					.competition_id(competitionId)
 					.contestant_id(new Video().userIdCompetitionSoon())
 					.vote_number(1)
 					.video_id(new Video().videoIdCompetitionSoon())
@@ -127,8 +131,10 @@ public class CompetitionVote extends BaseTest {
 	public void VoteCompetitionExpired() {
 		if (new ListCompetition().statusExpired() ==  200) {
 			
+			Integer competitionId = Integer.valueOf(new ListCompetition().competitionIdExpired());
+			
 			Vote body = Vote.builder()
-					.competition_id(new ListCompetition().expired())
+					.competition_id(competitionId)
 					.contestant_id(new Video().userIdCompetitionExpired())
 					.vote_number(1)
 					.video_id(new Video().videoIdCompetitionExpired())
