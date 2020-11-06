@@ -38,6 +38,8 @@ public class Competition extends BaseTest {
 		.then()
 		.log().body()
 		.body(matchesJsonSchemaInClasspath("now-competition.json"));
+		} else {
+			System.out.println("Data List Competition Id Kosong");			
 		}
 	}
 	
@@ -54,6 +56,8 @@ public class Competition extends BaseTest {
 		.then()
 		.log().body()
 		.body(matchesJsonSchemaInClasspath("soon-competition.json"));
+		} else {
+			System.out.println("Data List Competition Id Kosong");
 		}
 	}
 	
@@ -70,15 +74,19 @@ public class Competition extends BaseTest {
 		.then()
 		.log().body()
 		.body(matchesJsonSchemaInClasspath("expired-competition.json"));
+		} else {
+			System.out.println("Data List Competition Id Kosong");
 		}
 	}
 	
 	@Test(priority = 4)
 	public void JoinCompetitionNow() {		
-		if (new ListCompetition().now() != 0) {
+		if (new ListCompetition().statusNow() == 200 ) {
+			
+			Integer competitionId = Integer.valueOf(new ListCompetition().competitionIdNow());
 	
 			JoinCompetition body = JoinCompetition.builder()
-					.competition_id(new ListCompetition().now())
+					.competition_id(competitionId)
 					.build();
 			
 			given()
@@ -99,10 +107,12 @@ public class Competition extends BaseTest {
 	
 	@Test(priority = 5)
 	public void JoinCompetitionExpired() {		
-		if (new ListCompetition().expired() != 0) {
+		if (new ListCompetition().statusExpired() == 200) {
 	
+			Integer competitionId = Integer.valueOf(new ListCompetition().competitionIdExpired());
+			
 			JoinCompetition body = JoinCompetition.builder()
-					.competition_id(new ListCompetition().expired())
+					.competition_id(competitionId)
 					.build();
 			
 			given()
@@ -123,10 +133,12 @@ public class Competition extends BaseTest {
 	
 	@Test(priority = 6)
 	public void JoinCompetitionSoon() {		
-		if (new ListCompetition().soon() != 0) {
+		if (new ListCompetition().statusSoon() == 200) {
 	
+			Integer competitionId = Integer.valueOf(new ListCompetition().competitionIdSoon());
+			
 			JoinCompetition body = JoinCompetition.builder()
-					.competition_id(new ListCompetition().soon())
+					.competition_id(competitionId)
 					.build();
 			
 			given()
@@ -147,9 +159,9 @@ public class Competition extends BaseTest {
 	
 	@Test(priority = 7)
 	public void getDetailCompetitionNow() {
-		if (new ListCompetition().now() != 0) {
+		if (new ListCompetition().statusNow() == 200) {
 			
-			String competitionId = String.valueOf(new ListCompetition().now());
+			String competitionId = new ListCompetition().competitionIdNow();
 			given()
 			.spec(requestSpecificationToMerge)
 			.basePath("/competition/detail/" + competitionId)
@@ -166,9 +178,9 @@ public class Competition extends BaseTest {
 	
 	@Test(priority = 8)
 	public void getDetailCompetitionSoon() {
-		if (new ListCompetition().soon() != 0) {
+		if (new ListCompetition().statusSoon() == 200) {
 			
-			String competitionId = String.valueOf(new ListCompetition().soon());
+			String competitionId = new ListCompetition().competitionIdSoon();
 			given()
 			.spec(requestSpecificationToMerge)
 			.basePath("/competition/detail/" + competitionId)
@@ -185,9 +197,9 @@ public class Competition extends BaseTest {
 	
 	@Test(priority = 9)
 	public void getDetailCompetitionExpired() {
-		if (new ListCompetition().expired() != 0) {
+		if (new ListCompetition().statusExpired() == 200) {
 			
-			String competitionId = String.valueOf(new ListCompetition().expired());
+			String competitionId = new ListCompetition().competitionIdExpired();
 			given()
 			.spec(requestSpecificationToMerge)
 			.basePath("/competition/detail/" + competitionId)
@@ -204,11 +216,11 @@ public class Competition extends BaseTest {
 	
 	@Test(priority = 10)
 	public void getCompetitionNowVideo() {
-		if (new ListCompetition().now() != 0) {
+		if (new ListCompetition().statusNow() == 200) {
 		
 			given()
 			.spec(requestSpecificationToMerge)
-			.basePath("/competition/" + new ListCompetition().now() + "/videos")
+			.basePath("/competition/" + new ListCompetition().competitionIdNow() + "/videos")
 			.header("Authorization", new Token().visitor())
 			.when()
 			.get()
@@ -222,11 +234,11 @@ public class Competition extends BaseTest {
 	
 	@Test(priority = 11)
 	public void getCompetitionSoonVideo() {
-		if (new ListCompetition().soon() != 0) {
+		if (new ListCompetition().statusSoon() == 200) {
 		
 			given()
 			.spec(requestSpecificationToMerge)
-			.basePath("/competition/" + new ListCompetition().soon() + "/videos")
+			.basePath("/competition/" + new ListCompetition().competitionIdSoon() + "/videos")
 			.header("Authorization", new Token().visitor())
 			.when()
 			.get()
@@ -240,11 +252,11 @@ public class Competition extends BaseTest {
 	
 	@Test(priority = 12)
 	public void getCompetitionExpiredVideo() {
-		if (new ListCompetition().expired() != 0) {
+		if (new ListCompetition().statusExpired() == 200) {
 		
 			given()
 			.spec(requestSpecificationToMerge)
-			.basePath("/competition/" + new ListCompetition().expired() + "/videos")
+			.basePath("/competition/" + new ListCompetition().competitionIdExpired() + "/videos")
 			.header("Authorization", new Token().visitor())
 			.when()
 			.get()
@@ -269,6 +281,25 @@ public class Competition extends BaseTest {
 			.log().body()
 			.body(matchesJsonSchemaInClasspath("competition-upload.json"));
 
+	}
+	
+	@Test(priority = 14)
+	public void getLeaderboard() {
+		
+		if (new ListCompetition().statusNow() == 200) {
+		given()
+		.spec(requestSpecificationToMerge)
+		.basePath("/competition/leaderboard")
+		.param("competition_id", new ListCompetition().competitionIdNow())
+		.header("Authorization", new Token().visitor())
+		.when()
+		.get()
+		.then()
+		.log().body()
+		.body(matchesJsonSchemaInClasspath("leaderboard.json"));
+		} else {
+			System.out.println("Data List Competition Id Kosong");
+		}
 	}
 
 }

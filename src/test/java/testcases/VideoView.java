@@ -13,7 +13,7 @@ public class VideoView extends BaseTest {
 	
 	@Test(priority = 0)
 	public void viewVideo() {
-		if (new ListCompetition().now() != 0) {
+		if (new ListCompetition().statusNow() == 200) {
 			
 			View body = View.builder()
 					.video_id(new Video().videoIdCompetitionNow())

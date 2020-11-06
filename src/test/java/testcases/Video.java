@@ -14,7 +14,7 @@ public class Video extends BaseTest {
 
 	@Test(priority = 0)
 	public void getDetailVideo() {
-		if (new ListCompetition().now() != 0) {
+		if (new ListCompetition().statusNow() == 200) {
 			
 		given()
 		.spec(requestSpecificationToMerge)
@@ -34,7 +34,7 @@ public class Video extends BaseTest {
 	
 	@Test(priority = 1)
 	public void uploadVideo() {
-		if (new ListCompetition().now() != 0) {
+		if (new ListCompetition().statusNow() == 200) {
 			
 			Integer categoryId = Integer.valueOf(new function.Home().homeSectionId());
 			

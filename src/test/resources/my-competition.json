@@ -1,0 +1,126 @@
+{
+	"type": "object",
+	"required": [
+		"data",
+		"meta",
+		"status"
+	],
+	"properties": {
+		"data": {
+			"type": [
+				"array",
+				"null"
+			],
+			"required": [
+				"competition",
+				"contestant",
+				"rank",
+				"vote",
+				"status"
+			],
+			"properties": {
+				"competition": {
+					"type": "object",
+					"required": [
+						"competition_id",
+						"title"
+					],
+					"properties": {
+						"competition_id": {
+							"type": "integer",
+							"minLength": 1
+						},
+						"title": {
+							"type": "string",
+							"minLength": 1
+						}
+					}
+				},
+				"contestant": {
+					"contestant": {
+						"type": "object",
+						"required": [
+							"user_id",
+							"display_name"
+						],
+						"properties": {
+							"user_id": {
+								"type": "integer",
+								"minLength": 1
+							},
+							"display_name": {
+								"type": "string",
+								"minLength": 1
+							}
+						}
+					}
+				},
+				"rank": {
+					"type": "integer",
+					"minLength": 1
+				},
+				"vote": {
+					"type": "integer",
+					"minLength": 1
+				}
+			}
+		},
+		"meta": {
+			"type": [
+				"object",
+				"null"
+			],
+			"required": [
+				"pagination"
+			],
+			"properties": {
+				"pagination": {
+					"type": "object",
+					"required": [
+						"current_page",
+						"per_page",
+						"total",
+						"total_page"
+					],
+					"properties": {
+						"current_page": {
+							"type": "integer"
+						},
+						"per_page": {
+							"type": "integer"
+						},
+						"total": {
+							"type": "integer"
+						},
+						"total_page": {
+							"type": "integer"
+						}
+					}
+				}
+			}
+		},
+		"status": {
+			"type": "object",
+			"required": [
+				"code",
+				"message_client",
+				"message_server"
+			],
+			"properties": {
+				"code": {
+					"type": "integer",
+					"enum": [
+						200,
+						404
+					]
+				},
+				"message_client": {
+					"type": "string"
+				},
+				"message_server": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}

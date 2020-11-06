@@ -32,7 +32,7 @@ public class Token {
 	public String login() {
 
 		Login body = Login.builder()
-				.username("dikakoko04@gmail.com")
+				.username("qa_test@mailinator.com")
 				.password("dikakoko")
 				.device_id("04111998")
 				.platform("mweb")

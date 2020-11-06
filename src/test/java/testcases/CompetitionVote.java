@@ -14,12 +14,12 @@ public class CompetitionVote extends BaseTest {
 	
 	@Test(priority = 0)
 	public void getVoteQuotaCompetitionNow() {
-		if (new ListCompetition().now() !=  0) {
+		if (new ListCompetition().statusNow() ==  200) {
 			
 			given()
 			.spec(requestSpecificationToMerge)
 			.basePath("/vote/competition")
-			.param("competition_id", new ListCompetition().now())
+			.param("competition_id", new ListCompetition().competitionIdNow())
 			.header("Authorization", new Token().login())
 			.when()
 			.get()
@@ -33,12 +33,12 @@ public class CompetitionVote extends BaseTest {
 	
 	@Test(priority = 1)
 	public void getVoteQuotaCompetitionSoon() {
-		if (new ListCompetition().soon() !=  0) {
+		if (new ListCompetition().statusSoon() ==  200) {
 			
 			given()
 			.spec(requestSpecificationToMerge)
 			.basePath("/vote/competition")
-			.param("competition_id", new ListCompetition().soon())
+			.param("competition_id", new ListCompetition().competitionIdSoon())
 			.header("Authorization", new Token().login())
 			.when()
 			.get()
@@ -52,12 +52,12 @@ public class CompetitionVote extends BaseTest {
 	
 	@Test(priority = 3)
 	public void getVoteQuotaCompetitionExpired() {
-		if (new ListCompetition().expired() !=  0) {
+		if (new ListCompetition().statusExpired() ==  200) {
 			
 			given()
 			.spec(requestSpecificationToMerge)
 			.basePath("/vote/competition")
-			.param("competition_id", new ListCompetition().expired())
+			.param("competition_id", new ListCompetition().competitionIdExpired())
 			.header("Authorization", new Token().login())
 			.when()
 			.get()
@@ -71,7 +71,7 @@ public class CompetitionVote extends BaseTest {
 	
 	@Test(priority = 4)
 	public void VoteCompetitionNow() {
-		if (new ListCompetition().now() !=  0) {
+		if (new ListCompetition().statusNow() ==  200) {
 			
 			Vote body = Vote.builder()
 					.competition_id(new ListCompetition().now())
@@ -98,7 +98,7 @@ public class CompetitionVote extends BaseTest {
 	
 	@Test(priority = 5)
 	public void VoteCompetitionSoon() {
-		if (new ListCompetition().soon() !=  0) {
+		if (new ListCompetition().statusSoon() ==  200) {
 			
 			Vote body = Vote.builder()
 					.competition_id(new ListCompetition().soon())
@@ -125,7 +125,7 @@ public class CompetitionVote extends BaseTest {
 	
 	@Test(priority = 6)
 	public void VoteCompetitionExpired() {
-		if (new ListCompetition().expired() !=  0) {
+		if (new ListCompetition().statusExpired() ==  200) {
 			
 			Vote body = Vote.builder()
 					.competition_id(new ListCompetition().expired())

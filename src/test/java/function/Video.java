@@ -13,7 +13,7 @@ public int videoIdCompetitionNow() {
 		
 		return given()
 		.spec(requestSpecificationToMerge)
-		.basePath("/competition/" + new ListCompetition().now() +"/videos")
+		.basePath("/competition/" + new ListCompetition().competitionIdNow() +"/videos")
 		.header("Authorization", new Token().visitor())
 		.when()
 		.get()
@@ -25,7 +25,7 @@ public int videoIdCompetitionSoon() {
 	
 	return given()
 	.spec(requestSpecificationToMerge)
-	.basePath("/competition/" + new ListCompetition().soon() +"/videos")
+	.basePath("/competition/" + new ListCompetition().competitionIdSoon() +"/videos")
 	.header("Authorization", new Token().visitor())
 	.when()
 	.get()
@@ -37,7 +37,7 @@ public int videoIdCompetitionExpired() {
 	
 	return given()
 	.spec(requestSpecificationToMerge)
-	.basePath("/competition/" + new ListCompetition().expired() +"/videos")
+	.basePath("/competition/" + new ListCompetition().competitionIdExpired() +"/videos")
 	.header("Authorization", new Token().visitor())
 	.when()
 	.get()
@@ -49,7 +49,7 @@ public int userIdCompetitionNow() {
 	
 	return given()
 	.spec(requestSpecificationToMerge)
-	.basePath("/competition/" + new ListCompetition().now() +"/videos")
+	.basePath("/competition/" + new ListCompetition().competitionIdNow() +"/videos")
 	.header("Authorization", new Token().visitor())
 	.when()
 	.get()
@@ -61,7 +61,7 @@ public int userIdCompetitionSoon() {
 	
 	return given()
 	.spec(requestSpecificationToMerge)
-	.basePath("/competition/" + new ListCompetition().soon() +"/videos")
+	.basePath("/competition/" + new ListCompetition().competitionIdSoon() +"/videos")
 	.header("Authorization", new Token().visitor())
 	.when()
 	.get()
@@ -73,7 +73,7 @@ public int userIdCompetitionExpired() {
 	
 	return given()
 	.spec(requestSpecificationToMerge)
-	.basePath("/competition/" + new ListCompetition().expired() +"/videos")
+	.basePath("/competition/" + new ListCompetition().competitionIdExpired() +"/videos")
 	.header("Authorization", new Token().visitor())
 	.when()
 	.get()
@@ -81,8 +81,20 @@ public int userIdCompetitionExpired() {
 	.path("data[0].author.user_id");
 }
 
+public String videoTitleCompetitionNow() {
+	
+	return given()
+	.spec(requestSpecificationToMerge)
+	.basePath("/competition/" + new ListCompetition().competitionIdNow() +"/videos")
+	.header("Authorization", new Token().visitor())
+	.when()
+	.get()
+	.getBody()
+	.path("data[0].title").toString();
+}
+
 	@Test
 	public void test() {
-		System.out.println(videoIdCompetitionNow());
+		System.out.println(videoTitleCompetitionNow());
 	}
 }

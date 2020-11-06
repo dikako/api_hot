@@ -1,0 +1,168 @@
+{
+	"type": "object",
+	"required": [
+		"data",
+		"meta",
+		"status"
+	],
+	"properties": {
+		"data": {
+			"type": [
+				"array",
+				"null"
+			],
+			"required": [
+				"id",
+				"user_id",
+				"nickname",
+				"display_name",
+				"thumbnail",
+				"dob",
+				"email",
+				"gender",
+				"phone_code",
+				"country_code",
+				"phone",
+				"role",
+				"active",
+				"following",
+				"total_followers",
+				"create_at",
+				"update_at",
+				"profile_url"
+			],
+			"properties": {
+				"id": {
+					"type": "integer"
+				},
+				"user_id": {
+					"type": "integer",
+					"minLength": 1
+				},
+				"nickname": {
+					"type": "string"
+				},
+				"display_name": {
+					"type": "string"
+				},
+				"thumbnail": {
+					"type": "string"
+				},
+				"dob": {
+					"type": "string"
+				},
+				"email": {
+					"type": "string"
+				},
+				"gender": {
+					"type": "string"
+				},
+				"phone_code": {
+					"type": "string"
+				},
+				"country_code": {
+					"type": "string"
+				},
+				"phone": {
+					"type": "string"
+				},
+				"role": {
+					"type": "string",
+					"enum": [
+						"user",
+						"judges"
+					]
+				},
+				"active": {
+					"type": "integer",
+					"enum": [
+						1,
+						0
+					]
+				},
+				"following": {
+					"type": "boolean",
+					"enum": [
+						true,
+						false
+					]
+				},
+				"total_followers": {
+					"type": "integer"
+				},
+				"create_at": {
+					"type": [
+						"null",
+						"string"
+					]
+				},
+				"update_at": {
+					"type": [
+						"null",
+						"string"
+					]
+				},
+				"profile_url": {
+					"type": "string"
+				}
+			}
+		},
+		"meta": {
+			"type": [
+				"object",
+				"null"
+			],
+			"required": [
+				"pagination"
+			],
+			"properties": {
+				"pagiantion": {
+					"type": "object",
+					"required": [
+						"current_page",
+						"per_page",
+						"total",
+						"total_page"
+					],
+					"properties": {
+						"current_page": {
+							"type": "integer"
+						},
+						"per_page": {
+							"type": "integer"
+						},
+						"total": {
+							"type": "integer"
+						},
+						"total_page": {
+							"type": "integer"
+						}
+					}
+				}
+			}
+		},
+		"status": {
+			"type": "object",
+			"required": [
+				"code",
+				"message_client",
+				"message_server"
+			],
+			"properties": {
+				"code": {
+					"type": "integer",
+					"enum": [
+						200,
+						404
+					]
+				},
+				"message_client": {
+					"type": "string"
+				},
+				"message_server": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}

@@ -13,7 +13,7 @@ public class VideoLike extends BaseTest {
 	
 	@Test(priority = 0)
 	public void likeVideo() {
-		if (new ListCompetition().now() != 0) {
+		if (new ListCompetition().statusNow() == 200) {
 			
 			Like body = Like.builder()
 					.type("like")
@@ -38,7 +38,7 @@ public class VideoLike extends BaseTest {
 	
 	@Test(priority = 1)
 	public void unlikeVideo() {
-		if (new ListCompetition().now() != 0) {
+		if (new ListCompetition().statusNow() == 200) {
 			
 			Like body = Like.builder()
 					.type("unlike")

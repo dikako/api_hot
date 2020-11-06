@@ -12,7 +12,7 @@ public class ListCompetition extends BaseTest {
 	public int statusListCompetition() {
 		return given()
 				.spec(requestSpecificationToMerge)
-				.basePath("/competition-now")
+				.basePath("/competition-list")
 				.header("Authorization", new Token().visitor())
 				.when()
 				.get()
@@ -142,7 +142,7 @@ public class ListCompetition extends BaseTest {
 	
 	@Test
 	public void test() {
-		System.out.println(now());
+		System.out.println(statusNow());
 	}
 
 }
