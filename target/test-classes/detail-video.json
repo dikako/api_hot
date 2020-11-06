@@ -1,0 +1,178 @@
+{
+	"type": "object",
+	"required": [
+		"data",
+		"meta",
+		"status"
+	],
+	"properties": {
+		"data": {
+			"type": "object",
+			"required": [
+				"id",
+				"video_id",
+				"url",
+				"thumbnail",
+				"author",
+				"title",
+				"views",
+				"likes",
+				"comments",
+				"is_liked",
+				"vote_available",
+				"vote_available_after",
+				"competition",
+				"share_link",
+				"sorting"
+			],
+			"properties": {
+				"id": {
+					"type": "integer"
+				},
+				"video_id": {
+					"type": "integer"
+				},
+				"url": {
+					"type": "string"
+				},
+				"thumbnail": {
+					"type": "string"
+				},
+				"author": {
+					"type": "object",
+					"required": [
+						"user_id",
+						"display_name",
+						"thumbnail",
+						"following",
+						"profile_url"
+					],
+					"properties": {
+						"user_id": {
+							"type": "integer"
+						},
+						"display_name": {
+							"type": "string"
+						},
+						"thumbnail": {
+							"type": "string"
+						},
+						"following": {
+							"type": "boolean",
+							"enum": [
+								true,
+								false
+							]
+						},
+						"profile_url": {
+							"type": "string"
+						}
+					}
+				},
+				"title": {
+					"type": "string"
+				},
+				"views": {
+					"type": "string"
+				},
+				"likes": {
+					"type": "string"
+				},
+				"comments": {
+					"type": "string"
+				},
+				"is_liked": {
+					"type": "boolean",
+					"enum": [
+						true,
+						false
+					]
+				},
+				"vote_available": {
+					"type": "boolean",
+					"enum": [
+						true,
+						false
+					]
+				},
+				"vote_available_afte": {
+					"type": "integer"
+				},
+				"competition": {
+					"type": "object",
+					"required": [
+						"competition_id",
+						"title"
+					],
+					"properties": {
+						"competition_id": {
+							"type": "integer"
+						},
+						"title": {
+							"type": "string"
+						}
+					}
+				},
+				"share_link": {
+					"type": "string"
+				},
+				"sorting": {
+					"type": "integer"
+				}
+			}
+		},
+		"meta": {
+			"type": "object",
+			"required": [
+				"pagination"
+			],
+			"properties": {
+				"pagination": {
+					"type": "object",
+					"required": [
+						"current_page",
+						"per_page",
+						"total",
+						"total_page"
+					],
+					"properties": {
+						"current_page": {
+							"type": "integer"
+						},
+						"per_page": {
+							"type": "integer"
+						},
+						"total": {
+							"type": "integer"
+						},
+						"total_page": {
+							"type": "integer"
+						}
+					}
+				}
+			}
+		},
+		"status": {
+			"type": "object",
+			"required": [
+				"code",
+				"message_client",
+				"message_server"
+			],
+			"properties": {
+				"code": {
+					"type": "integer",
+					"enum": [
+						200
+					]
+				},
+				"message_client": {
+					"type": "string"
+				},
+				"message_server": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}

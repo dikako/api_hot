@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "required": [
+    "data",
+    "meta",
+    "status"
+  ],
+
+  "properties": {
+    "data": {
+      "type": ["object", "null"]
+    },
+    "meta": {
+      "type": ["object", "null"]
+    },
+    "status": {
+      "type": "object",
+      "items": {
+        "type":"object",
+        "required": [
+          "code",
+          "message_client",
+          "message_server"
+        ],
+        "properties": {
+          "code": {
+            "type": "integer",
+            "enum": [200]
+          },
+          "message_client": {
+            "type": "string",
+            "pattern": "Success"
+          },
+          "message_server": {
+            "type": "string",
+            "pattern": "Success"
+          }
+        }
+      }
+    }
+  }
+}

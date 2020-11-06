@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test name="Test">
+    <classes>
+      <class name="testcases.CompetitionVote"/>
+      <class name="testcases.Home"/>
+      <class name="testcases.VideoLike"/>
+      <class name="testcases.Competition"/>
+      <class name="testcases.Comment"/>
+      <class name="testcases.VideoView"/>
+      <class name="testcases.Video"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

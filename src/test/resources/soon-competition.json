@@ -1,0 +1,122 @@
+{
+  "type": "object",
+  "required": [
+    "data",
+    "meta",
+    "status"
+  ],
+  "properties": {
+    "data": {
+      "type": ["array", "null"],
+      "items": {
+        "type": ["object", "null"], 
+        "required": [
+          "competition_id",
+          "title",
+          "thumbnail",
+          "start_date",
+          "end_date",
+          "type",
+          "leaderboard",
+          "join",
+          "sorting"
+        ],
+        "properties": {
+          "competition_id": {
+            "type": "integer",
+            "pattern": "^(?!0+$)[0-9]{1,10}$"
+          },
+          "title": {
+            "type": "string"
+          },
+          "thumbnail": {
+            "type": "string"
+          },
+          "start_date": {
+            "type": "string"
+          },
+          "end_date": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "pattern": "COMING SOON"
+          },
+          "leaderboard": {
+            "type": "boolean",
+            "enum": [
+              true,
+              false
+            ]
+          },
+          "join": {
+            "type": "boolean",
+            "enum": [
+              true,
+              false
+            ]
+          },
+          "sorting": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+
+    "meta": {
+      "type": ["object", "null"],
+      "required": [
+        "pagination"
+      ],
+      "properties": {
+        "pagination": {
+          "type": "object",
+          "required": [
+            "current_page",
+            "per_page",
+            "total",
+            "total_page"
+          ],
+          "properties": {
+            "current_page": {
+              "type": "integer"
+            },
+            "per_page": {
+              "type": "integer"
+            },
+            "total": {
+              "type":"integer"
+            },
+            "total_page": {
+              "type": "integer"
+            }
+          }
+        }
+      },
+
+      "status": {
+        "type": "object",
+        "required": [
+          "code",
+          "message_client",
+          "message_server"
+        ],
+        "properties": {
+          "code": {
+            "type": "integer",
+            "enum":[
+              200,
+              404
+            ]
+          },
+          "message_client": {
+            "type": "string"
+          },
+          "message_server": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

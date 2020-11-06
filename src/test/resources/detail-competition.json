@@ -1,0 +1,99 @@
+{
+	"type": "object",
+	"required": [
+		"data",
+		"meta",
+		"status"
+	],
+	"properties": {
+		"data": {
+			"type": "object",
+			"required": [
+				"competition_id",
+				"category_id",
+				"title",
+				"thumbnail",
+				"description",
+				"leaderboard",
+				"terms_condition",
+				"start_date",
+				"end_date",
+				"status",
+				"join"
+			],
+			"properties": {
+				"competition_id": {
+					"type": "integer"
+				},
+				"category_id": {
+					"type": [
+						"array",
+						"null"
+					]
+				},
+				"title": {
+					"type": "string"
+				},
+				"thumbnail": {
+					"type": "string"
+				},
+				"description": {
+					"type": "string"
+				},
+				"leaderboard": {
+					"type": "boolean",
+					"enum": [
+						true,
+						false
+					]
+				},
+				"terms_condition": {
+					"type": "string"
+				},
+				"start_date": {
+					"type": "string"
+				},
+				"end_date": {
+					"type": "string"
+				},
+				"status": {
+					"type": "string",
+					"enum": [
+						"active"
+					]
+				},
+				"join": {
+					"type": "boolean",
+					"enum": [
+						true,
+						false
+					]
+				}
+			}
+		},
+		"meta": {
+			"type": "null"
+		},
+		"status": {
+			"type": "object",
+			"required": [
+				"code",
+				"message_client",
+				"message_server"
+			],
+			"properties": {
+				"code": {
+					"type": "integer",
+					"enum": [
+						200
+					]
+				},
+				"message_client": {
+					"type": "string",
+					"pattern": "Success"
+				}
+			}
+		}
+	}
+}
+

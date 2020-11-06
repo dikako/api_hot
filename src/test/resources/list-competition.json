@@ -1,0 +1,66 @@
+{
+	"type": "object",
+	"required": [
+		"data",
+		"meta",
+		"status"
+	],
+	"properties": {
+		"data": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"required": [
+					"api",
+					"id",
+					"title"
+				],
+				"properties": {
+					"api": {
+						"type": "string",
+						"pattern": "^(.*)now-competition|expired-competition|soon-competition$"
+					},
+					"id": {
+						"type": "integer",
+						"enum": [
+							1,
+							2,
+							3
+						]
+					},
+					"title": {
+						"type": "string",
+						"pattern": "Now|Soon|Expired"
+					}
+				}
+			}
+		},
+		"meta": {
+			"type": "null"
+		},
+		"status": {
+			"type": "object",
+			"required": [
+				"code",
+				"message_client",
+				"message_server"
+			],
+			"properties": {
+				"code": {
+					"type": "integer",
+					"enum": [
+						200
+					]
+				},
+				"message_client": {
+					"type": "string",
+					"pattern": "Success"
+				},
+				"message_server": {
+					"type": "string",
+					"pattern": "Success"
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "requored": [
+    "data",
+    "status"
+  ],
+  "properties": {
+    "data": {
+      "type": "object",
+      "items": {
+        "type": "object",
+        "required": [
+          "access_token"
+        ],
+        "properties": {
+          "access_token": {
+            "type": "string"
+          }
+        },
+
+        "status": {
+          "type":"object",
+          "required":[
+            "code",
+            "message_client",
+            "message_server"
+          ],
+          "properties":{
+            "code": {
+              "type": "integer",
+              "pattern": "0"
+            },
+            "message_client": {
+              "type": "string",
+              "pattern": "Success"
+            },
+
+            "message_server": {
+              "type": "string",
+              "pattern": "Success"
+            }
+          }
+        }
+      }
+    }
+  }
+}

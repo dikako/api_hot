@@ -1,0 +1,56 @@
+{
+	"type": "object",
+	"required": [
+		"data",
+		"meta",
+		"status"
+	],
+	"properties": {
+		"data": {
+			"type": ["object", "null"],
+			"required": [
+				"user_id",
+				"max_vote_quota",
+				"remaining_quota"
+			],
+			"properties": {
+				"user_id": {
+					"type": "integer"
+				},
+				"max_vote_quota": {
+					"type": "integer"
+				},
+				"remaining": {
+					"type": "integer"
+				}
+			}
+		},
+		"meta": {
+			"type": "null"
+		},
+		"status": {
+			"type": "object",
+			"required": [
+				"code",
+				"message_client",
+				"message_server"
+			],
+			"properties": {
+				"code": {
+					"type": "integer",
+					"enum": [
+						200,
+						422,
+						404
+					]
+				},
+				"message_client": {
+					"type": "string"
+				},
+				"message_server": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}
