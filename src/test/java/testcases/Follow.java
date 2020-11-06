@@ -9,6 +9,30 @@ import token.Token;
 public class Follow extends BaseTest {
 	
 	@Test
+	public void unfollowFirst() {		
+		if (new function.User().userIdStatusCode() == 200) {
+	
+			lombok.Follow body = lombok.Follow.builder()
+					.follow_to(new function.User().userId())
+					.build();
+			
+			given()
+			.spec(requestSpecificationToMerge)
+			.basePath("/user/unfollow")
+			.header("Authorization", new Token().login())
+			.body(body)
+			.log().all()
+			.when()
+			.post()
+			.then()
+			.log().body();
+			
+		} else {
+			System.out.println("Status Code Not 200");
+		}
+	}
+	
+	@Test(dependsOnMethods = { "unfollowFirst" })
 	public void follow() {		
 		if (new function.User().userIdStatusCode() == 200) {
 	

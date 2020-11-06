@@ -1,0 +1,139 @@
+{
+	"type": "object",
+	"required": [
+		"data",
+		"meta",
+		"status"
+	],
+	"properties": {
+		"data": {
+			"type": [
+				"object"
+			],
+			"required": [
+				"id",
+				"user_id",
+				"nickname",
+				"display_name",
+				"thumbnail",
+				"dob",
+				"email",
+				"gender",
+				"phone_code",
+				"country_code",
+				"phone",
+				"role",
+				"active",
+				"following",
+				"total_followers",
+				"create_at",
+				"update_at",
+				"profile_url"
+			],
+			"properties": {
+				"id": {
+					"type": "integer"
+				},
+				"user_id": {
+					"type": "integer"
+				},
+				"nickname": {
+					"type": "string"
+				},
+				"display_name": {
+					"type": "string"
+				},
+				"thumbnail": {
+					"type": "string"
+				},
+				"dob": {
+					"type": "string"
+				},
+				"email": {
+					"type": "string"
+				},
+				"gender": {
+					"type": "string",
+					"enum": [
+						"male",
+						"female",
+						""
+					]
+				},
+				"phone_code": {
+					"type": "string"
+				},
+				"country_code": {
+					"type": "string"
+				},
+				"phone": {
+					"type": "string"
+				},
+				"role": {
+					"type": "string",
+					"enum": [
+						"user",
+						"judges"
+					]
+				},
+				"active": {
+					"type": "integer",
+					"enum": [
+						0,
+						1
+					]
+				},
+				"following": {
+					"type": "boolean",
+					"enum": [
+						true,
+						false
+					]
+				},
+				"total_followers": {
+					"type": "integer"
+				},
+				"create_at": {
+					"type": [
+						"string",
+						"null"
+					]
+				},
+				"update_at": {
+					"type": [
+						"string",
+						"null"
+					]
+				},
+				"profile_url": {
+					"type": "string"
+				}
+			}
+		},
+		"meta": {
+			"type": "null"
+		},
+		"status": {
+			"type": "object",
+			"required": [
+				"code",
+				"message_client",
+				"message_server"
+			],
+			"properties": {
+				"code": {
+					"type": "integer",
+					"enum": [
+						200
+					]
+				},
+				"message_client": {
+					"type": "string"
+				},
+				"message_server": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}

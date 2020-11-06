@@ -1,0 +1,96 @@
+{
+	"type": "object",
+	"required": [
+		"data",
+		"meta",
+		"status"
+	],
+	"properties": {
+		"data": {
+			"type": ["array", "null"],
+			"required": [
+				"user_id",
+				"nickname",
+				"display_name",
+				"thumbnail",
+				"role"
+			],
+			"properties": {
+				"user_id": {
+					"type": "integer"
+				},
+				"nickname": {
+					"type": "string"
+				},
+				"display_name": {
+					"type": "string",
+					"minLength": 3
+				},
+				"thumbnail": {
+					"type": "string"
+				},
+				"role": {
+					"type": "boolean",
+					"enum": [
+						"user",
+						"judges"
+					]
+				}
+			}
+		},
+		"meta": {
+			"type": ["object", "null"],
+			"required": [
+				"pagination"
+			],
+			"properties": {
+				"pagination": {
+					"type": "object",
+					"required": [
+						"current_page",
+						"per_page",
+						"total",
+						"total_page"
+					],
+					"properties": {
+						"current_page": {
+							"type": "integer"
+						},
+						"per_page": {
+							"type": "integer"
+						},
+						"total": {
+							"type": "integer"
+						},
+						"total_page": {
+							"type": "integer"
+						}
+					}
+				}
+			}
+		},
+		"status": {
+			"type": "object",
+			"required": [
+				"code",
+				"message_client",
+				"message_server"
+			],
+			"properties": {
+				"code": {
+					"type": "integer",
+					"enum": [
+						200,
+						404
+					]
+				},
+				"message_client": {
+					"type": "string"
+				},
+				"message_server": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}

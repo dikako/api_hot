@@ -1,0 +1,40 @@
+{
+	"type": "object",
+	"required": [
+		"data",
+		"meta",
+		"status"
+	],
+	"properties": {
+		"data": {
+			"type": ["object", "null"]
+		},
+		"meta": {
+			"type": "null"
+		},
+		"status": {
+			"type": "object",
+			"required": [
+				"code",
+				"message_client",
+				"message_server"
+			],
+			"properties": {
+				"code": {
+					"type": "integer",
+					"enum": [
+						0
+					]
+				},
+				"message_client": {
+					"type": "string",
+					"pattern": "Your Date of Birthday Success Change"
+				},
+				"message_server": {
+					"type": "string",
+					"pattern": "Your Date of Birthday Success Change"
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,54 @@
+{
+	"type": "object",
+	"required": [
+		"data",
+		"meta",
+		"status"
+	],
+	"properties": {
+		"data": {
+			"type": [
+				"array",
+				"null"
+			],
+			"required": [
+				"competition_id",
+				"name"
+			],
+			"properties": {
+				"competition_id": {
+					"type": "integer"
+				},
+				"title": {
+					"type": "string"
+				}
+			}
+		},
+		"meta": {
+			"type": "null"
+		},
+		"status": {
+			"type": "object",
+			"required": [
+				"code",
+				"message_client",
+				"message_server"
+			],
+			"properties": {
+				"code": {
+					"type": "integer",
+					"enum": [
+						200,
+						404
+					]
+				},
+				"message_client": {
+					"type": "string"
+				},
+				"message_server": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}

@@ -10,8 +10,8 @@ import io.restassured.specification.RequestSpecification;
 public class BaseTestComment {
 
 	protected RequestSpecification requestSpecificationToMerge = new RequestSpecBuilder()
-			.setBaseUri("https://rc-api.rctiplus.com/ugc-comment/api/v1")
-//			.setBaseUri("https://api-hot.rctiplus.com/ugc-comment/api/v1")
+//			.setBaseUri("https://rc-api.rctiplus.com/ugc-comment/api/v1")
+			.setBaseUri("https://api-hot.rctiplus.com/ugc-comment/api/v1")
 			.setContentType(ContentType.JSON)
 			.build();
 
