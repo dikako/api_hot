@@ -14,7 +14,7 @@ public class CompetitionVote extends BaseTest {
 	
 	@Test(priority = 0)
 	public void getVoteQuotaCompetitionNow() {
-		if (new ListCompetition().statusNow() ==  200) {
+		if (new ListCompetition().statusNow() ==  200 & new Video().statusVideoIdCompetitionNow() == 200) {
 			
 			given()
 			.spec(requestSpecificationToMerge)
@@ -33,7 +33,7 @@ public class CompetitionVote extends BaseTest {
 	
 	@Test(priority = 1)
 	public void getVoteQuotaCompetitionSoon() {
-		if (new ListCompetition().statusSoon() ==  200) {
+		if (new ListCompetition().statusSoon() ==  200 & new Video().statusVideoIdCompetitionSoon() == 200) {
 			
 			given()
 			.spec(requestSpecificationToMerge)
@@ -52,7 +52,7 @@ public class CompetitionVote extends BaseTest {
 	
 	@Test(priority = 3)
 	public void getVoteQuotaCompetitionExpired() {
-		if (new ListCompetition().statusExpired() ==  200) {
+		if (new ListCompetition().statusExpired() ==  200 & new Video().statusVideoIdCompetitionExpired() == 200) {
 			
 			given()
 			.spec(requestSpecificationToMerge)
@@ -71,7 +71,7 @@ public class CompetitionVote extends BaseTest {
 	
 	@Test(priority = 4)
 	public void VoteCompetitionNow() {
-		if (new ListCompetition().statusNow() ==  200) {
+		if (new ListCompetition().statusNow() ==  200 & new Video().statusVideoIdCompetitionNow() == 200 & new Video().statusUserIdCompetitionNow() == 200) {
 			
 			Integer competitionId = Integer.valueOf(new ListCompetition().competitionIdNow());
 			
@@ -100,7 +100,7 @@ public class CompetitionVote extends BaseTest {
 	
 	@Test(priority = 5)
 	public void VoteCompetitionSoon() {
-		if (new ListCompetition().statusSoon() ==  200) {
+		if (new ListCompetition().statusSoon() ==  200 & new Video().statusVideoIdCompetitionSoon() == 200 & new Video().statusUserIdCompetitionSoon() == 200) {
 			
 			Integer competitionId = Integer.valueOf(new ListCompetition().competitionIdSoon());
 			
@@ -129,7 +129,7 @@ public class CompetitionVote extends BaseTest {
 	
 	@Test(priority = 6)
 	public void VoteCompetitionExpired() {
-		if (new ListCompetition().statusExpired() ==  200) {
+		if (new ListCompetition().statusExpired() ==  200 & new Video().statusVideoIdCompetitionExpired() == 200 & new Video().statusUserIdCompetitionExpired() == 200) {
 			
 			Integer competitionId = Integer.valueOf(new ListCompetition().competitionIdExpired());
 			

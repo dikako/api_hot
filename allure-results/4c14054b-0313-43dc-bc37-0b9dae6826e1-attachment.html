@@ -1,0 +1,32 @@
+<div>POST to https://api-hot.rctiplus.com/ugc-vote/api/v1/vote/competition</div>
+
+<h4>Body</h4>
+<div>
+    <pre class="preformated-text">
+    {
+    &quot;competition_id&quot;: 23,
+    &quot;contestant_id&quot;: 1022993,
+    &quot;vote_number&quot;: 1,
+    &quot;video_id&quot;: 2792
+}
+    </pre>
+</div>
+
+<h4>Headers</h4>
+<div>
+        <div>Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ2aWQiOjEwMjMxODEsInRva2VuIjoiM2IyNzQ3Nzk0MjcwMTJhZSIsInBsIjoibXdlYiIsImRldmljZV9pZCI6IjA0MTExOTk4In0.mrUK70v2v52ab_lf723FmjJG5JqiYGrQRV0ciU1ILqc</div>
+        <div>Accept: */*</div>
+        <div>Content-Type: application/json; charset=UTF-8</div>
+</div>
+
+
+
+<h4>Curl</h4>
+<div>
+curl -v -X POST &#39;https://api-hot.rctiplus.com/ugc-vote/api/v1/vote/competition&#39; -H &#39;Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ2aWQiOjEwMjMxODEsInRva2VuIjoiM2IyNzQ3Nzk0MjcwMTJhZSIsInBsIjoibXdlYiIsImRldmljZV9pZCI6IjA0MTExOTk4In0.mrUK70v2v52ab_lf723FmjJG5JqiYGrQRV0ciU1ILqc&#39; -H &#39;Accept: */*&#39; -H &#39;Content-Type: application/json; charset=UTF-8&#39; -d &#39;{
+    &quot;competition_id&quot;: 23,
+    &quot;contestant_id&quot;: 1022993,
+    &quot;vote_number&quot;: 1,
+    &quot;video_id&quot;: 2792
+}&#39;
+</div>

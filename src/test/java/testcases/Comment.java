@@ -12,7 +12,7 @@ public class Comment extends BaseTestComment {
 
 	@Test
 	public void commentUser() {		
-		if (new ListCompetition().statusNow() == 200) {
+		if (new ListCompetition().statusNow() == 200 & new Video().statusVideoIdCompetitionNow() == 200) {
 			
 			lombok.Comment body = lombok.Comment.builder()
 					.message("dataqadata_ Good Videos I Think")
@@ -37,7 +37,7 @@ public class Comment extends BaseTestComment {
 	
 	@Test(dependsOnMethods = { "commentUser" })
 	public void getcommentUser() {		
-		if (new ListCompetition().statusNow() == 200) {
+		if (new ListCompetition().statusNow() == 200 & new Video().statusVideoIdCompetitionNow() == 200) {
 			
 			given()
 			.spec(requestSpecificationToMerge)

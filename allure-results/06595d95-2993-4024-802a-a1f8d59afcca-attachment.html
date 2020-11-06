@@ -1,0 +1,32 @@
+<div>POST to https://api.rctiplus.com/api/v3/login</div>
+
+<h4>Body</h4>
+<div>
+    <pre class="preformated-text">
+    {
+    &quot;username&quot;: &quot;qa_test@mailinator.com&quot;,
+    &quot;password&quot;: &quot;dikakoko&quot;,
+    &quot;device_id&quot;: &quot;04111998&quot;,
+    &quot;platform&quot;: &quot;mweb&quot;
+}
+    </pre>
+</div>
+
+<h4>Headers</h4>
+<div>
+        <div>Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ2aWQiOjAsInRva2VuIjoiYWYzODE3MjllYTQ1ODRiYSIsInBsIjoibXdlYiJ9.NO2647pDRCjpRgGLKr3oJ8_gIH32SwZxw68vM-WFsJo</div>
+        <div>Accept: */*</div>
+        <div>Content-Type: application/json; charset=UTF-8</div>
+</div>
+
+
+
+<h4>Curl</h4>
+<div>
+curl -v -X POST &#39;https://api.rctiplus.com/api/v3/login&#39; -H &#39;Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ2aWQiOjAsInRva2VuIjoiYWYzODE3MjllYTQ1ODRiYSIsInBsIjoibXdlYiJ9.NO2647pDRCjpRgGLKr3oJ8_gIH32SwZxw68vM-WFsJo&#39; -H &#39;Accept: */*&#39; -H &#39;Content-Type: application/json; charset=UTF-8&#39; -d &#39;{
+    &quot;username&quot;: &quot;qa_test@mailinator.com&quot;,
+    &quot;password&quot;: &quot;dikakoko&quot;,
+    &quot;device_id&quot;: &quot;04111998&quot;,
+    &quot;platform&quot;: &quot;mweb&quot;
+}&#39;
+</div>

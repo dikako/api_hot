@@ -14,7 +14,7 @@ public class Video extends BaseTest {
 
 	@Test(priority = 0)
 	public void getDetailVideo() {
-		if (new ListCompetition().statusNow() == 200) {
+		if (new ListCompetition().statusNow() == 200 & new function.Video().statusVideoIdCompetitionNow() == 200) {
 			
 		given()
 		.spec(requestSpecificationToMerge)
