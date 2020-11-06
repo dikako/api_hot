@@ -12,7 +12,8 @@ import lombok.Login;
 public class Token {
 
 	RequestSpecification requestSpecificationToMerge = new RequestSpecBuilder()
-			.setBaseUri("https://rc-api.rctiplus.com/api")
+			.setBaseUri("https://api.rctiplus.com/api")
+//			.setBaseUri("https://rc-api.rctiplus.com/api")
 			.setContentType(ContentType.JSON).build();
 
 	public String visitor() {
