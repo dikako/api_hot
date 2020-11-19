@@ -42,8 +42,7 @@
 								"type": "string"
 							},
 							"message": {
-								"type": "string",
-								"pattern": "[dataqa]+"
+								"type": "string"
 							}
 						}
 					}
